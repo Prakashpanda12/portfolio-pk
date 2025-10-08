@@ -8,7 +8,7 @@ const Projects = () => {
       description: "Healthcare app with video consultations, multi-user profiles, and doctor availability tracking using ZegoCloud and Firebase Cloud Messaging.",
       tech: ["React Native", "Redux", "Firebase", "ZegoCloud"],
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-      github: "https://github.com/prakashpanda951",
+      github: "https://github.com/Prakashpanda12",
       demo: "#"
     },
     {
@@ -16,7 +16,7 @@ const Projects = () => {
       description: "Booking platform with calendar scheduling, review system, payment gateway integration with Stripe and Google Maps API.",
       tech: ["React Native", "Next.js", "Redux", "Stripe", "Google Maps"],
       image: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=800&q=80",
-      github: "https://github.com/prakashpanda951",
+      github: "https://github.com/Prakashpanda12",
       demo: "#"
     },
     {
@@ -24,7 +24,7 @@ const Projects = () => {
       description: "Complete HR management system with GPS attendance, project and leave management, and role-based access control.",
       tech: ["Remix.js", "TypeScript", "React Query", "Redux"],
       image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
-      github: "https://github.com/prakashpanda951",
+      github: "https://github.com/Prakashpanda12",
       demo: "#"
     }
   ];

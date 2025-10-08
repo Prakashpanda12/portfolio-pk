@@ -36,7 +36,7 @@ const Hero = () => {
 
         <div className="flex items-center justify-center gap-6 mb-12">
           <a
-            href="https://github.com/prakashpanda951"
+            href="https://github.com/Prakashpanda12"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform"

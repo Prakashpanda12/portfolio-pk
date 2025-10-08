@@ -54,9 +54,9 @@ const Contact = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
                     <item.icon className="h-6 w-6 text-primary-foreground" />
                   </div>
-                  <div>
+                 <div className="break-words">
                     <p className="text-sm text-muted-foreground">{item.label}</p>
-                    <p className="font-medium">{item.value}</p>
+                    <p className="font-medium break-all">{item.value}</p>
                   </div>
                 </a>
               ))}
