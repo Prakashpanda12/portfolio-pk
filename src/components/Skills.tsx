@@ -1,16 +1,24 @@
 const Skills = () => {
   const skillCategories = [
     {
+      category: "Languages",
+      skills: ["JavaScript", "TypeScript", "HTML5", "CSS3"]
+    },
+    {
       category: "Frontend",
-      skills: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Vue.js"]
+      skills: ["React.js", "Next.js", "Remix.js", "React Native"]
     },
     {
-      category: "Backend",
-      skills: ["Node.js", "Python", "PostgreSQL", "MongoDB", "REST APIs"]
+      category: "Styling",
+      skills: ["Tailwind CSS", "Bootstrap", "Material UI"]
     },
     {
-      category: "Tools & Others",
-      skills: ["Git", "Docker", "AWS", "Figma", "CI/CD"]
+      category: "State Management",
+      skills: ["Redux", "React Query", "Context API"]
+    },
+    {
+      category: "Tools & Services",
+      skills: ["Git", "GitHub", "Firebase", "Figma", "Axios", "OAuth", "REST APIs", "ZegoCloud"]
     }
   ];
 
@@ -22,7 +30,7 @@ const Skills = () => {
         </h2>
         <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-12"></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
