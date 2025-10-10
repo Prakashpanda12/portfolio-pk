@@ -41,7 +41,7 @@ const About = () => {
                   <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-secondary p-1 avatar-glow">
                     <div className="w-full h-full rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center overflow-hidden">
                       <img 
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+                        src="https://media.licdn.com/dms/image/v2/D5603AQFwtZqvWDcpVQ/profile-displayphoto-shrink_800_800/B56ZVHADfXGsAg-/0/1740652954743?e=1762992000&v=beta&t=8QIYz_ehIYK2uFdqe5BFhfh0ogeGG9VbZi5nYo_GoFU"
                         alt="Prakash Kumar Panda"
                         className="w-full h-full object-cover"
                       />
