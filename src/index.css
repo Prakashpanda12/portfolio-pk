@@ -99,6 +99,49 @@ All colors MUST be HSL.
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
+
+  .skill-card {
+    @apply glass-card p-6 rounded-xl transition-all duration-500;
+    @apply hover:scale-105 hover:shadow-2xl;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .skill-card:hover {
+    box-shadow: 
+      0 20px 60px -15px hsl(var(--primary) / 0.4),
+      0 0 40px hsl(var(--primary) / 0.2);
+  }
+
+  .skill-progress-bar {
+    @apply h-2 rounded-full overflow-hidden bg-muted/30;
+  }
+
+  .skill-progress-fill {
+    @apply h-full rounded-full;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  .floating-orb {
+    @apply absolute rounded-full blur-3xl opacity-20 pointer-events-none;
+  }
+
+  .avatar-glow {
+    box-shadow: 
+      0 0 60px hsl(var(--primary) / 0.4),
+      0 0 100px hsl(var(--secondary) / 0.2);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skill-card,
+    .animate-float,
+    .animate-float-slow,
+    .animate-float-medium,
+    .animate-float-fast {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
 }
 
 @layer base {

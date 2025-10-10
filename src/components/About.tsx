@@ -25,20 +25,59 @@ const About = () => {
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text">
           About Me
         </h2>
-        <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-12"></div>
+        <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-16"></div>
 
-        <div className="max-w-3xl mx-auto mb-16">
-          <p className="text-lg text-muted-foreground text-center mb-6">
-            I'm a passionate software developer and freelancer with expertise in building 
-            modern web applications. I love turning complex problems into simple, beautiful, 
-            and intuitive solutions.
-          </p>
-          <p className="text-lg text-muted-foreground text-center">
-            With years of experience in full-stack development, I specialize in creating 
-            responsive, user-friendly applications that make a difference.
-          </p>
+        {/* Photo and Description Section */}
+        <div className="max-w-6xl mx-auto mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Photo Section */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                {/* Decorative background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-2xl opacity-20 animate-pulse"></div>
+                
+                {/* Avatar container */}
+                <div className="relative w-64 h-64 md:w-80 md:h-80 animate-float-slow">
+                  <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-secondary p-1 avatar-glow">
+                    <div className="w-full h-full rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center overflow-hidden">
+                      <img 
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+                        alt="Prakash Kumar Panda"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating orbs */}
+                <div className="floating-orb w-20 h-20 bg-primary -top-10 -left-10 animate-float-medium"></div>
+                <div className="floating-orb w-16 h-16 bg-secondary -bottom-8 -right-8 animate-float-fast"></div>
+              </div>
+            </div>
+
+            {/* Text Content */}
+            <div className="space-y-6">
+              <div className="animate-fade-in">
+                <p className="text-lg text-muted-foreground mb-4">
+                  I'm a passionate software developer and freelancer specializing in modern web and mobile applications. 
+                  With extensive experience in <span className="text-primary font-medium">React.js</span>, <span className="text-primary font-medium">React Native</span>, 
+                  and <span className="text-primary font-medium">TypeScript</span>, I create intuitive and scalable solutions.
+                </p>
+                <p className="text-lg text-muted-foreground mb-4">
+                  I've successfully delivered projects ranging from healthcare platforms with video consultations 
+                  to booking systems with payment integration and comprehensive HRMS solutions. My approach combines 
+                  technical excellence with creative problem-solving to build applications that users love.
+                </p>
+                <p className="text-lg text-muted-foreground">
+                  When I'm not coding, I'm exploring new technologies, contributing to open-source projects, 
+                  and continuously learning to stay at the forefront of web development.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
+        {/* Highlights Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {highlights.map((item, index) => (
             <div
