@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        display: ['Syne', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -99,13 +100,17 @@ export default {
           "0%": { width: "0%" },
           "100%": { width: "100%" },
         },
-        "slide-up": {
+         "slide-up": {
           "0%": { transform: "translateY(100%)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
         "orbit": {
           "0%": { transform: "rotate(0deg) translateX(100px) rotate(0deg)" },
           "100%": { transform: "rotate(360deg) translateX(100px) rotate(-360deg)" },
+        },
+        "marquee": {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       animation: {
@@ -120,6 +125,7 @@ export default {
         "progress-fill": "progress-fill 1.5s ease-out forwards",
         "slide-up": "slide-up 0.5s ease-out",
         "orbit": "orbit 20s linear infinite",
+        "marquee": "marquee 20s linear infinite",
       },
     },
   },

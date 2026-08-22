@@ -1,11 +1,10 @@
 import { ExternalLink, Github } from "lucide-react";
-import { Button } from "./ui/button";
 
 const Projects = () => {
   const projects = [
     {
       title: "Patient Healthcare App",
-      description: "Healthcare app with video consultations, multi-user profiles, and doctor availability tracking using ZegoCloud and Firebase Cloud Messaging.",
+      description: "Healthcare platform with video consultations, multi-user profiles, and doctor availability tracking using ZegoCloud and Firebase Cloud Messaging.",
       tech: ["React Native", "Redux", "Firebase", "ZegoCloud"],
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
       github: "https://github.com/Prakashpanda12",
@@ -30,70 +29,82 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-4">
-      <div className="container mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text">
-          Featured Projects
-        </h2>
-        <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-12"></div>
+    <section id="projects" className="py-32 px-6 sm:px-8 border-t border-foreground/20">
+      <div className="max-w-7xl mx-auto">
+        {/* Title Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-24">
+          <div className="lg:col-span-4">
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-foreground">
+              SELECTED WORK
+            </h2>
+          </div>
+          <div className="lg:col-span-8">
+            <p className="text-lg text-foreground/70 max-w-xl">
+              A curated collection of client applications and digital systems showcasing frontend expertise and performance.
+            </p>
+          </div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {/* Projects List */}
+        <div className="space-y-16">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="glass-card rounded-lg overflow-hidden group hover:scale-105 transition-all duration-300 animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center py-12 border-t border-foreground/20 group"
             >
-              <div className="relative overflow-hidden h-48">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60"></div>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-foreground">
+              {/* Info Column */}
+              <div className="lg:col-span-7 space-y-6">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 block">
+                  Project 0{index + 1}
+                </span>
+                <h3 className="text-2xl sm:text-4xl font-display font-bold text-foreground group-hover:opacity-80 transition-opacity">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 text-sm">
+                <p className="text-lg text-foreground/70 max-w-2xl leading-relaxed">
                   {project.description}
                 </p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
+
+                {/* Tech Badges */}
+                <div className="flex flex-wrap gap-2 pt-2">
                   {project.tech.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-md"
+                      className="text-xs uppercase tracking-widest font-semibold border border-foreground/20 px-3 py-1.5 bg-foreground/5 text-foreground"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex gap-3">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    asChild
-                    className="flex-1"
+                {/* Links */}
+                <div className="flex gap-6 pt-4">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold hover:underline"
                   >
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4 mr-2" />
-                      Code
-                    </a>
-                  </Button>
-                  <Button
-                    size="sm"
-                    asChild
-                    className="flex-1 animated-gradient"
+                    <Github className="h-4 w-4" /> Code
+                  </a>
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold hover:underline"
                   >
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Demo
-                    </a>
-                  </Button>
+                    <ExternalLink className="h-4 w-4" /> Live Demo
+                  </a>
+                </div>
+              </div>
+
+              {/* Image Frame Column */}
+              <div className="lg:col-span-5">
+                <div className="w-full aspect-[16/10] bg-foreground/5 border border-foreground/20 p-2 relative overflow-hidden group-hover:border-foreground transition-all duration-300">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-750 ease-out"
+                  />
                 </div>
               </div>
             </div>

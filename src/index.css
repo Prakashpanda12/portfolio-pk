@@ -2,63 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 220 26% 6%;
-    --foreground: 210 40% 98%;
+    --background: 73 10% 88%; /* #E5E7DF */
+    --foreground: 0 0% 12%;   /* #1E1E1E */
 
-    --card: 220 20% 10%;
-    --card-foreground: 210 40% 98%;
+    --card: 73 8% 85%;
+    --card-foreground: 0 0% 12%;
 
-    --popover: 220 20% 10%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 73 10% 88%;
+    --popover-foreground: 0 0% 12%;
 
-    --primary: 189 97% 43%;
-    --primary-foreground: 220 26% 6%;
+    --primary: 0 0% 12%;
+    --primary-foreground: 73 10% 88%;
 
-    --secondary: 271 91% 65%;
-    --secondary-foreground: 220 26% 6%;
+    --secondary: 73 5% 75%;
+    --secondary-foreground: 0 0% 12%;
 
-    --muted: 220 20% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 73 5% 82%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 189 97% 43%;
-    --accent-foreground: 220 26% 6%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 73 10% 88%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 20% 18%;
-    --input: 220 20% 18%;
-    --ring: 189 97% 43%;
+    --border: 0 0% 12%;
+    --input: 73 5% 82%;
+    --ring: 0 0% 12%;
 
-    --radius: 0.75rem;
+    --radius: 0px; /* Square/Minimalist look */
+  }
 
-    /* Custom gradient colors */
-    --gradient-start: 189 97% 43%;
-    --gradient-end: 271 91% 65%;
-    
-    /* Glass effect */
-    --glass-bg: 220 20% 10% / 0.4;
-    --glass-border: 210 40% 98% / 0.1;
+  .dark {
+    --background: 0 0% 12%;  /* #1E1E1E */
+    --foreground: 73 10% 88%; /* #E5E7DF */
+
+    --card: 0 0% 8%;
+    --card-foreground: 73 10% 88%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 73 10% 88%;
+
+    --primary: 73 10% 88%;
+    --primary-foreground: 0 0% 12%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 73 10% 88%;
+
+    --muted: 0 0% 16%;
+    --muted-foreground: 73 5% 65%;
+
+    --accent: 73 10% 88%;
+    --accent-foreground: 0 0% 12%;
+
+    --border: 73 10% 88%;
+    --input: 0 0% 16%;
+    --ring: 73 10% 88%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border/20;
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    background: 
-      radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, hsl(var(--secondary) / 0.15) 0%, transparent 50%),
-      hsl(var(--background));
+    @apply bg-background text-foreground font-sans antialiased selection:bg-foreground selection:text-background;
+    letter-spacing: -0.02em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight uppercase;
   }
 
   html {
@@ -67,89 +83,95 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  /* Studio Grid lines */
+  .studio-grid {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, hsl(var(--foreground) / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--foreground) / 0.05) 1px, transparent 1px);
   }
 
-  .glass-card {
-    background: hsl(var(--glass-bg));
-    backdrop-filter: blur(12px);
-    border: 1px solid hsl(var(--glass-border));
+  .studio-border {
+    border: 1px solid hsl(var(--foreground));
   }
 
-  .animated-gradient {
-    background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
+  .studio-border-t {
+    border-top: 1px solid hsl(var(--foreground));
   }
 
-  @keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+  .studio-border-b {
+    border-bottom: 1px solid hsl(var(--foreground));
   }
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+  .studio-border-r {
+    border-right: 1px solid hsl(var(--foreground));
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  .studio-border-l {
+    border-left: 1px solid hsl(var(--foreground));
   }
 
-  .skill-card {
-    @apply glass-card p-6 rounded-xl transition-all duration-500;
-    @apply hover:scale-105 hover:shadow-2xl;
-    transform-style: preserve-3d;
-    will-change: transform;
+  /* Marquee/Ticker slider */
+  .marquee-content {
+    display: flex;
+    gap: 2rem;
+    animation: marquee 25s linear infinite;
+    width: max-content;
   }
 
-  .skill-card:hover {
-    box-shadow: 
-      0 20px 60px -15px hsl(var(--primary) / 0.4),
-      0 0 40px hsl(var(--primary) / 0.2);
+  /* Hover fill interaction effect */
+  .hover-fill {
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    z-index: 1;
   }
 
-  .skill-progress-bar {
-    @apply h-2 rounded-full overflow-hidden bg-muted/30;
+  .hover-fill::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(var(--foreground));
+    transition: top 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1;
   }
 
-  .skill-progress-fill {
-    @apply h-full rounded-full;
-    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+  .hover-fill:hover {
+    color: hsl(var(--background));
   }
 
-  .floating-orb {
-    @apply absolute rounded-full blur-3xl opacity-20 pointer-events-none;
+  .hover-fill:hover::before {
+    top: 0;
   }
 
-  .avatar-glow {
-    box-shadow: 
-      0 0 60px hsl(var(--primary) / 0.4),
-      0 0 100px hsl(var(--secondary) / 0.2);
+  /* Inverse hover fill */
+  .hover-fill-inv {
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    z-index: 1;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .skill-card,
-    .animate-float,
-    .animate-float-slow,
-    .animate-float-medium,
-    .animate-float-fast {
-      animation: none !important;
-      transition: none !important;
-    }
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
+  .hover-fill-inv::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(var(--background));
+    transition: top 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  .hover-fill-inv:hover {
+    color: hsl(var(--foreground));
+  }
+
+  .hover-fill-inv:hover::before {
+    top: 0;
   }
 }

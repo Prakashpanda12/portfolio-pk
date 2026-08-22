@@ -4,92 +4,79 @@ const About = () => {
   const highlights = [
     {
       icon: Code2,
-      title: "Clean Code",
-      description: "Writing maintainable and scalable code is my passion"
+      title: "Clean Architecture",
+      description: "Writing scalable, maintainable, and type-safe code bases."
     },
     {
       icon: Zap,
-      title: "Fast Delivery",
-      description: "Quick turnaround without compromising on quality"
+      title: "Optimized Performance",
+      description: "Fast loading times, smooth animations, and high responsiveness."
     },
     {
       icon: Sparkles,
-      title: "Creative Solutions",
-      description: "Innovative approaches to solve complex problems"
+      title: "Attention to Detail",
+      description: "Perfect implementation of design systems and user experiences."
     }
   ];
 
   return (
-    <section id="about" className="py-20 px-4">
-      <div className="container mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text">
-          About Me
-        </h2>
-        <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-16"></div>
+    <section id="about" className="py-32 px-6 sm:px-8 border-t border-foreground/20">
+      <div className="max-w-7xl mx-auto">
+        {/* Title and Intro Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-24">
+          <div className="lg:col-span-4">
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-foreground">
+              ABOUT ME
+            </h2>
+          </div>
+          <div className="lg:col-span-8">
+            <p className="text-2xl sm:text-3xl text-foreground font-light leading-relaxed tracking-tight">
+              A software engineer passionate about bridging the gap between design and technology.
+            </p>
+          </div>
+        </div>
 
-        {/* Photo and Description Section */}
-        <div className="max-w-6xl mx-auto mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Photo Section */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative">
-                {/* Decorative background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-2xl opacity-20 animate-pulse"></div>
-                
-                {/* Avatar container */}
-                <div className="relative w-64 h-64 md:w-80 md:h-80 animate-float-slow">
-                  <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-secondary p-1 avatar-glow">
-                    <div className="w-full h-full rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center overflow-hidden">
-                      <img 
-                        src="https://media.licdn.com/dms/image/v2/D5603AQFwtZqvWDcpVQ/profile-displayphoto-shrink_800_800/B56ZVHADfXGsAg-/0/1740652954743?e=1762992000&v=beta&t=8QIYz_ehIYK2uFdqe5BFhfh0ogeGG9VbZi5nYo_GoFU"
-                        alt="Prakash Kumar Panda"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating orbs */}
-                <div className="floating-orb w-20 h-20 bg-primary -top-10 -left-10 animate-float-medium"></div>
-                <div className="floating-orb w-16 h-16 bg-secondary -bottom-8 -right-8 animate-float-fast"></div>
-              </div>
+        {/* Content and Image Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center mb-24">
+          {/* Square clean image frame */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="w-full max-w-sm aspect-square bg-foreground/5 p-2 border border-foreground/20 relative group overflow-hidden">
+              <img
+                src="https://media.licdn.com/dms/image/v2/D5603AQFwtZqvWDcpVQ/profile-displayphoto-shrink_800_800/B56ZVHADfXGsAg-/0/1740652954743?e=1762992000&v=beta&t=8QIYz_ehIYK2uFdqe5BFhfh0ogeGG9VbZi5nYo_GoFU"
+                alt="Prakash Kumar Panda"
+                className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700"
+              />
+              <div className="absolute inset-0 border border-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none m-4"></div>
             </div>
+          </div>
 
-            {/* Text Content */}
-            <div className="space-y-6">
-              <div className="animate-fade-in">
-                <p className="text-lg text-muted-foreground mb-4">
-                  I'm a passionate software developer and freelancer specializing in modern web and mobile applications. 
-                  With extensive experience in <span className="text-primary font-medium">React.js</span>, <span className="text-primary font-medium">React Native</span>, 
-                  and <span className="text-primary font-medium">TypeScript</span>, I create intuitive and scalable solutions.
-                </p>
-                <p className="text-lg text-muted-foreground mb-4">
-                  I've successfully delivered projects ranging from healthcare platforms with video consultations 
-                  to booking systems with payment integration and comprehensive HRMS solutions. My approach combines 
-                  technical excellence with creative problem-solving to build applications that users love.
-                </p>
-                <p className="text-lg text-muted-foreground">
-                  When I'm not coding, I'm exploring new technologies, contributing to open-source projects, 
-                  and continuously learning to stay at the forefront of web development.
-                </p>
-              </div>
-            </div>
+          {/* Text paragraph content */}
+          <div className="lg:col-span-7 space-y-6">
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              I specialize in building modular web and mobile applications using React, React Native, and TypeScript. Over the past 2+ years, I have helped client companies launch robust software platforms, focusing heavily on clean UI/UX states, solid state management, and reliable integrations.
+            </p>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              My portfolio includes high-concurrency booking systems, modern GPS attendance systems, video consult apps, and HR tools. I believe code quality, optimization, and micro-interactions are key to keeping users engaged and happy.
+            </p>
           </div>
         </div>
 
         {/* Highlights Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-foreground/20 divide-y md:divide-y-0 md:divide-x divide-foreground/20">
           {highlights.map((item, index) => (
             <div
               key={index}
-              className="glass-card p-6 rounded-lg hover:scale-105 transition-transform duration-300 animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="p-8 hover:bg-foreground/5 transition-colors duration-300"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-4">
-                <item.icon className="h-6 w-6 text-primary-foreground" />
+              <div className="w-10 h-10 border border-foreground/20 flex items-center justify-center mb-6">
+                <item.icon className="h-4 w-4 text-foreground" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p className="text-muted-foreground">{item.description}</p>
+              <h3 className="text-lg font-display font-semibold mb-2 text-foreground">
+                {item.title}
+              </h3>
+              <p className="text-sm text-foreground/70 leading-relaxed">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>

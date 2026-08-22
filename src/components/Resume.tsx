@@ -1,5 +1,4 @@
 import { Briefcase, GraduationCap, Award, Download } from "lucide-react";
-import { Button } from "./ui/button";
 
 const Resume = () => {
   const experience = [
@@ -30,7 +29,7 @@ const Resume = () => {
   const education = [
     {
       degree: "Bachelor's in Computer Science",
-      institution: "University/College Name",
+      institution: "Biju Patnaik University of Technology",
       period: "2016 - 2020",
       description: "Focused on software engineering, data structures, and web technologies"
     }
@@ -44,119 +43,117 @@ const Resume = () => {
   ];
 
   return (
-    <section id="resume" className="py-20 px-4">
-      <div className="container mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text">
-          Resume
-        </h2>
-        <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-12"></div>
-
-        <div className="max-w-5xl mx-auto space-y-12">
-          {/* Download Button */}
-          <div className="flex justify-center mb-12">
-            <Button 
-              size="lg"
-              className="bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 transition-opacity"
+    <section id="resume" className="py-32 px-6 sm:px-8 border-t border-foreground/20">
+      <div className="max-w-7xl mx-auto">
+        {/* Title and Download Button */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-24">
+          <div className="lg:col-span-4">
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-foreground">
+              CURRICULUM VITAE
+            </h2>
+          </div>
+          <div className="lg:col-span-8 flex justify-start lg:justify-end">
+            <a
+              href="#"
+              className="hover-fill text-xs uppercase tracking-widest font-semibold border border-foreground px-6 py-4 flex items-center gap-2 transition-colors bg-background"
             >
-              <Download className="mr-2 h-5 w-5" />
-              Download Resume PDF
-            </Button>
+              <Download className="h-4 w-4" /> Download Resume PDF
+            </a>
           </div>
+        </div>
 
-          {/* Experience */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                <Briefcase className="h-6 w-6 text-primary-foreground" />
-              </div>
-              <h3 className="text-3xl font-bold gradient-text">Experience</h3>
-            </div>
+        {/* Resume Content Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          {/* Left Column - Experience */}
+          <div className="lg:col-span-8 space-y-12">
+            <div>
+              <h3 className="text-xl font-display font-bold text-foreground/40 mb-8 tracking-widest uppercase">
+                Work Experience
+              </h3>
 
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary"></div>
-
-              {experience.map((exp, index) => (
-                <div 
-                  key={index} 
-                  className="relative pl-16 pb-12 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  {/* Timeline dot */}
-                  <div className="absolute left-4 top-2 w-4 h-4 rounded-full bg-primary ring-4 ring-background"></div>
-                  
-                  <div className="glass-card p-6 rounded-lg hover:scale-[1.02] transition-transform">
-                    <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                      <div>
-                        <h4 className="text-xl font-bold text-foreground">{exp.title}</h4>
-                        <p className="text-primary font-medium">{exp.company}</p>
+              <div className="space-y-12 border-l border-foreground/20 pl-6 sm:pl-8 ml-2">
+                {experience.map((exp, index) => (
+                  <div key={index} className="relative group">
+                    {/* Tiny square timeline node */}
+                    <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 bg-foreground border border-background"></div>
+                    
+                    <div className="space-y-4">
+                      <div className="flex flex-wrap items-baseline justify-between gap-2">
+                        <h4 className="text-xl font-display font-bold text-foreground">
+                          {exp.title}
+                        </h4>
+                        <span className="text-xs uppercase tracking-widest font-semibold text-foreground/60">
+                          {exp.period}
+                        </span>
                       </div>
-                      <span className="text-sm text-muted-foreground bg-muted/50 px-3 py-1 rounded-full">
-                        {exp.period}
-                      </span>
+                      <p className="text-sm font-semibold uppercase text-foreground/80 tracking-wider">
+                        {exp.company}
+                      </p>
+                      <p className="text-foreground/75 leading-relaxed text-sm">
+                        {exp.description}
+                      </p>
+                      
+                      <ul className="space-y-2 pt-2">
+                        {exp.achievements.map((achievement, i) => (
+                          <li key={i} className="text-xs text-foreground/60 flex items-start gap-2">
+                            <span className="text-foreground">—</span>
+                            {achievement}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <p className="text-muted-foreground mb-4">{exp.description}</p>
-                    <ul className="space-y-2">
-                      {exp.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <span className="text-primary mt-1">▹</span>
-                          {achievement}
-                        </li>
-                      ))}
-                    </ul>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            {/* Education inside same column */}
+            <div className="pt-8">
+              <h3 className="text-xl font-display font-bold text-foreground/40 mb-8 tracking-widest uppercase">
+                Education
+              </h3>
+
+              <div className="space-y-12 border-l border-foreground/20 pl-6 sm:pl-8 ml-2">
+                {education.map((edu, index) => (
+                  <div key={index} className="relative group">
+                    <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 bg-foreground border border-background"></div>
+                    
+                    <div className="space-y-4">
+                      <div className="flex flex-wrap items-baseline justify-between gap-2">
+                        <h4 className="text-xl font-display font-bold text-foreground">
+                          {edu.degree}
+                        </h4>
+                        <span className="text-xs uppercase tracking-widest font-semibold text-foreground/60">
+                          {edu.period}
+                        </span>
+                      </div>
+                      <p className="text-sm font-semibold uppercase text-foreground/80 tracking-wider">
+                        {edu.institution}
+                      </p>
+                      <p className="text-foreground/75 leading-relaxed text-sm">
+                        {edu.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Education */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                <GraduationCap className="h-6 w-6 text-primary-foreground" />
-              </div>
-              <h3 className="text-3xl font-bold gradient-text">Education</h3>
-            </div>
+          {/* Right Column - Certifications */}
+          <div className="lg:col-span-4 space-y-8">
+            <h3 className="text-xl font-display font-bold text-foreground/40 mb-8 tracking-widest uppercase">
+              Certifications
+            </h3>
 
-            {education.map((edu, index) => (
-              <div 
-                key={index} 
-                className="glass-card p-6 rounded-lg animate-fade-in hover:scale-[1.02] transition-transform"
-                style={{ animationDelay: `${(experience.length + index) * 0.2}s` }}
-              >
-                <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                  <div>
-                    <h4 className="text-xl font-bold text-foreground">{edu.degree}</h4>
-                    <p className="text-primary font-medium">{edu.institution}</p>
-                  </div>
-                  <span className="text-sm text-muted-foreground bg-muted/50 px-3 py-1 rounded-full">
-                    {edu.period}
-                  </span>
-                </div>
-                <p className="text-muted-foreground">{edu.description}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Certifications */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                <Award className="h-6 w-6 text-primary-foreground" />
-              </div>
-              <h3 className="text-3xl font-bold gradient-text">Certifications</h3>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="border border-foreground/20 divide-y divide-foreground/20">
               {certifications.map((cert, index) => (
-                <div 
+                <div
                   key={index}
-                  className="glass-card p-4 rounded-lg flex items-center gap-3 animate-fade-in hover:scale-105 transition-transform"
-                  style={{ animationDelay: `${(experience.length + education.length + index) * 0.1}s` }}
+                  className="p-6 hover:bg-foreground/5 transition-colors duration-300 flex items-center gap-3 text-sm text-foreground/80 font-medium"
                 >
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span className="text-foreground">{cert}</span>
+                  <div className="w-1.5 h-1.5 bg-foreground"></div>
+                  {cert}
                 </div>
               ))}
             </div>

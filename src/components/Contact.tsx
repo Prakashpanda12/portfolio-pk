@@ -26,84 +26,92 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 bg-muted/20">
-      <div className="container mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text">
-          Get In Touch
-        </h2>
-        <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-12"></div>
+    <section id="contact" className="py-32 px-6 sm:px-8 border-t border-foreground/20 bg-foreground/[0.01]">
+      <div className="max-w-7xl mx-auto">
+        {/* Title Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-24">
+          <div className="lg:col-span-4">
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-foreground">
+              GET IN TOUCH
+            </h2>
+          </div>
+          <div className="lg:col-span-8">
+            <p className="text-lg text-foreground/70 max-w-xl">
+              Have a project in mind, want to discuss software systems, or need professional freelance frontend work?
+            </p>
+          </div>
+        </div>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div className="space-y-6 animate-fade-in">
-            <div>
-              <h3 className="text-2xl font-semibold mb-4">Let's work together</h3>
-              <p className="text-muted-foreground mb-6">
-                I'm always open to discussing new projects, creative ideas, or opportunities 
-                to be part of your vision.
-              </p>
-            </div>
-
-            <div className="space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* Contact Info (Left) */}
+          <div className="lg:col-span-5 space-y-8">
+            <h3 className="text-2xl font-display font-bold text-foreground">
+              Let's build something remarkable.
+            </h3>
+            
+            <div className="border border-foreground/20 divide-y divide-foreground/20 bg-background">
               {contactInfo.map((item, index) => (
                 <a
                   key={index}
                   href={item.href}
-                  className="flex items-center gap-4 glass-card p-4 rounded-lg hover:scale-105 transition-transform"
+                  className="flex items-center gap-6 p-6 hover:bg-foreground/5 transition-colors"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
-                    <item.icon className="h-6 w-6 text-primary-foreground" />
+                  <div className="w-10 h-10 border border-foreground/20 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="h-4 w-4 text-foreground" />
                   </div>
-                 <div className="break-words">
-                    <p className="text-sm text-muted-foreground">{item.label}</p>
-                    <p className="font-medium break-all">{item.value}</p>
+                  <div>
+                    <p className="text-xs uppercase tracking-widest font-semibold text-foreground/40 mb-1">{item.label}</p>
+                    <p className="font-semibold text-foreground break-all">{item.value}</p>
                   </div>
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="glass-card p-6 md:p-8 rounded-lg animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <form className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+          {/* Contact Form (Right) */}
+          <div className="lg:col-span-7 border border-foreground/20 p-8 sm:p-10 bg-background">
+            <form className="space-y-8">
+              <div className="space-y-2">
+                <label htmlFor="name" className="block text-xs uppercase tracking-widest font-bold text-foreground/60">
                   Name
                 </label>
                 <Input
                   id="name"
                   type="text"
-                  placeholder="Your name"
-                  className="w-full"
+                  placeholder="Enter your name"
+                  className="rounded-none border-foreground/20 focus-visible:ring-foreground focus-visible:ring-offset-0 placeholder:text-foreground/30 text-foreground bg-transparent"
                 />
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+              <div className="space-y-2">
+                <label htmlFor="email" className="block text-xs uppercase tracking-widest font-bold text-foreground/60">
                   Email
                 </label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="your.email@example.com"
-                  className="w-full"
+                  placeholder="Enter your email"
+                  className="rounded-none border-foreground/20 focus-visible:ring-foreground focus-visible:ring-offset-0 placeholder:text-foreground/30 text-foreground bg-transparent"
                 />
               </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+              <div className="space-y-2">
+                <label htmlFor="message" className="block text-xs uppercase tracking-widest font-bold text-foreground/60">
                   Message
                 </label>
                 <Textarea
                   id="message"
-                  placeholder="Tell me about your project..."
-                  className="w-full min-h-[150px]"
+                  placeholder="Describe your project goals..."
+                  className="rounded-none border-foreground/20 focus-visible:ring-foreground focus-visible:ring-offset-0 min-h-[150px] placeholder:text-foreground/30 text-foreground bg-transparent"
                 />
               </div>
 
-              <Button type="submit" className="w-full animated-gradient hover:scale-105 transition-transform">
+              <button
+                type="submit"
+                className="w-full hover-fill-inv bg-foreground text-background text-xs uppercase tracking-widest font-bold border border-foreground py-4 transition-colors duration-300"
+              >
                 Send Message
-              </Button>
+              </button>
             </form>
           </div>
         </div>
